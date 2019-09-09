@@ -26,7 +26,34 @@
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
-
+   const p={
+      firstName:'A',
+      lastName:'B'
+   }
+     /*
+     给p对象添加一个fullName属性, 属性值为 fistName-lastName
+     如果改变fistName/lastName, fullName随之同步变化
+     如果改变fullName, firstName/lastName随之同步变化
+     */    
+     Object.defineProperty(p,'fullName',{
+        //当读取属性值自动调用，返回属性值,this是包含属性的对象
+       get(){
+          console.log('get()')
+          return this.firstName+'-'+this.lastName
+       },
+       set(value){  //fullName最新的值  value是获取最新的值
+          console.log('set()',value)
+          const names=value.split('-')
+          this.firstName=names[0]
+          this.lastName=names[1]
+       }
+     })
+     console.log(p.fullName)
+     p.firstName='C'
+     p.lastName='D'
+     console.log(p.fullName)
+     p.fullName='E-F'
+     console.log(p.firstName,p.lastName)
 </script>
 </body>
 </html>

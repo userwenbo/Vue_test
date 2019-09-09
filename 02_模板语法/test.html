@@ -34,11 +34,25 @@
      <p>{{msg}}</p>
      <p>{{msg.toUpperCase()}}</p>
   <h2>2. 指令一: 强制数据绑定</h2>
-
+      <a v-bind:href="url">点我去百度</a>
   <h2>3. 指令二: 绑定事件监听</h2>
+      <button v-on:click="handleClick">点我一下</button>
+      <button @click="handleClick">点我一下2</button>
+  </div>    
   <script src="../js/vue.js"></script>
   <script>
-       
+       new Vue({
+         el:'#app',
+         data:{ // data的所有属性都会成为vm对象的属性, 而模板页面中可以直接访问
+           msg:'this is very beuitiful',
+           url:'http://www.baidu.com'
+         },
+         methods: {
+            handleClick(){
+              alert('hello-dddd')
+            }
+         },
+       })
   </script>
 </div>
 
