@@ -6,12 +6,24 @@
    <style>
        /*指定过度样式 */  
        .fade-enter-active, .fade-leave-active{
-
+          transition: opacity 5s;
        }
        /* 指定隐藏时样式 */
        .fade-enter, .fade-leave-to{
-         opacity: 0;\
+         opacity: 0;
        }
+        /* 显示的过度 */
+        .move-enter-active{
+          transition: all 5s;
+        }
+        .move-leave-active{
+          transition: all 1s;
+        }
+        /* 指定隐藏时的样式 */
+        .move-enter, .move-leave-to{
+          opacity: 0;
+          transform: translateX(20px);
+        }
    </style>
 </head>
 <body>
